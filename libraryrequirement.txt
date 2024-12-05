@@ -1,7 +1,5 @@
-fastapi
-uvicorn
-tensorflow
-numpy
+fastapi==0.95.1
+uvicorn==0.22.0
 pydantic
 absl-py==2.1.0
 asttokens==2.4.1
@@ -71,7 +69,6 @@ python-dateutil==2.9.0.post0
 python-version==0.0.2
 pytz==2024.2
 pyzmq==26.2.0
-
 requests==2.32.3
 rich==13.9.3
 rsa==4.9
@@ -83,7 +80,6 @@ tensorboard==2.18.0
 tensorboard-data-server==0.7.2
 tensorflow==2.18.0
 tensorflow-io-gcs-filesystem==0.31.0
-
 termcolor==2.5.0
 tf_keras==2.18.0
 threadpoolctl==3.5.0
