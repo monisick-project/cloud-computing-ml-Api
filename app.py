@@ -1,17 +1,18 @@
 from fastapi import FastAPI, UploadFile, HTTPException
-from pydantic import BaseModel
 import numpy as np
 import json
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.image import img_to_array, load_img
-from tensorflow.keras.losses import MeanSquaredError
-
+from tensorflow.keras.utils import get_file
 import os
 
 app = FastAPI()
 
-# Load the trained model
-MODEL_PATH = "./model/trained_model2.h5"  # Ganti dengan path model Anda
+# URL publik dari model yang ada di Cloud Storage
+MODEL_URL = "https://storage.googleapis.com/monisick-ml/trained_model2.h5"  # Ganti dengan URL Anda
+
+# Download model dari URL publik dan simpan di lokal sementara
+MODEL_PATH = get_file("trained_model2.h5", MODEL_URL)
 model = load_model(MODEL_PATH, compile=False)
 
 # Define image size (sesuaikan dengan ukuran input model Anda)
@@ -43,7 +44,6 @@ async def predict(file: UploadFile):
         predicted_fat = round(predictions[1][0].item(), 2)
         predicted_carb = round(predictions[2][0].item(), 2)
         predicted_protein = round(predictions[3][0].item(), 2)
-
 
         # Buat dictionary hasil prediksi
         prediction_dict = {
