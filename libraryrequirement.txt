@@ -1,6 +1,7 @@
 fastapi==0.95.1
 uvicorn==0.22.0
 pydantic
+python-multipart
 absl-py==2.1.0
 asttokens==2.4.1
 astunparse==1.6.3

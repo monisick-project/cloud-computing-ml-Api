@@ -76,3 +76,6 @@ async def predict(file: UploadFile):
 @app.get("/")
 def read_root():   
     return {"message": "Welcome to the FastAPI Prediction Service"}
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)

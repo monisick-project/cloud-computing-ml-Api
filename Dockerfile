@@ -2,11 +2,9 @@ FROM python:3.10-slim-buster
 
 WORKDIR /app
 
-COPY libraryrequirement.txt . 
+COPY libraryrequirement.txt .  
 
-RUN pip install --upgrade pip  
-
-RUN pip install -r libraryrequirement.txt  
+RUN pip install --no-cache-dir -r libraryrequirement.txt  
 
 COPY . .  
 
